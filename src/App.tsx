@@ -19,9 +19,11 @@ export default function App() {
   const totalLength = todoLength + inProgressLength + doneLength;
 
   return (
-    <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Kanban Board</h1>
-      <p className="mb-4 text-sm flex justify-end">Total {totalLength}</p>
+    <div className="container-app">
+      <div className="flex items-end justify-between mb-4">
+        <h1 className="app-title">Kanban Board</h1>
+        <p className="muted">Total {totalLength}</p>
+      </div>
       <Board tasks={tasks} setTasks={setTasks} />
     </div>
   );

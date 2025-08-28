@@ -3,12 +3,13 @@ import { useDraggable } from "@dnd-kit/core";
 import TrashButton from '../buttons/trash'
 import type { Task, Status } from "../types";
 import styles from './TaskCard.module.css'
+import type { Dispatch, SetStateAction } from "react";
 
 interface Props {
   task: Task;
   columnId: Status;
   sortIndex: number;
-  setTasks: (tasks: Map<Status, Task[]>) => void;
+  setTasks: Dispatch<SetStateAction<Map<Status, Task[]>>>;
 }
 
 export default function TaskCard({ task, columnId, sortIndex, setTasks }: Props) {
@@ -16,9 +17,9 @@ export default function TaskCard({ task, columnId, sortIndex, setTasks }: Props)
   const style = transform ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` } : undefined;
 
   const handleDelete = () => {
-    setTasks((prev) => {
+    setTasks(prev => {
       const next = new Map(prev);
-      const newTasks = prev.get(columnId)?.filter(t => t.id !== task.id);
+      const newTasks = prev.get(columnId)?.filter(t => t.id !== task.id) ?? [];
       next.set(columnId, newTasks);
       return next;
     })

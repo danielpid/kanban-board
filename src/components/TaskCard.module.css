@@ -1,5 +1,5 @@
 .article {
-    @apply flex justify-around rounded-xl border p-3 bg-white text-black dark:bg-zinc-800 dark:text-white shadow;
+    @apply flex justify-between items-start gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 p-3 bg-white text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 shadow-card;
 }
 
 .text-wrapper {

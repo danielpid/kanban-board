@@ -1,6 +1,7 @@
 import { DndContext, DragEndEvent, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import Column from "./Column";
+import type { Dispatch, SetStateAction } from "react";
 import type { Task, Status } from "../types";
 
 const columns: { id: Status; title: string }[] = [
@@ -9,7 +10,10 @@ const columns: { id: Status; title: string }[] = [
   { id: "done", title: "Done" },
 ];
 
-interface Props { tasks: Map<Status, Task[]>; setTasks: (prev: Map<Status, Task[]>) => void; }
+interface Props {
+  tasks: Map<Status, Task[]>;
+  setTasks: Dispatch<SetStateAction<Map<Status, Task[]>>>;
+}
 
 export default function Board({ tasks, setTasks }: Props) {
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
