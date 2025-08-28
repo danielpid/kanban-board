@@ -1,7 +1,7 @@
 .article {
-    @apply flex justify-between items-start gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 p-3 bg-white text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 shadow-card;
+  @apply flex justify-between items-start gap-2 rounded-xl border border-zinc-200 dark:border-zinc-700 p-3 bg-white text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 shadow-card;
 }
 
 .text-wrapper {
-    @apply w-full;
+  @apply w-full;
 }

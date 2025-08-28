@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 export function useLocalStorageState<K, V>(key: string, initial: Map<K, V>) {
   const [state, setState] = useState<Map<K, V>>(() => {
@@ -18,6 +18,6 @@ export function useLocalStorageState<K, V>(key: string, initial: Map<K, V>) {
     }
     localStorage.setItem(key, JSON.stringify(Array.from(state.entries())));
   }, [key, state]);
-  
+
   return [state, setState] as const;
 }

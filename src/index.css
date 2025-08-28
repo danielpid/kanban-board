@@ -2,16 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light dark; }
-body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+:root {
+  color-scheme: light dark;
+}
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial;
+}
 
 @layer base {
-  html { @apply h-full; }
-  body { @apply min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100; }
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
+  }
 }
 
 @layer components {
-  .container-app { @apply p-4 md:p-6 lg:p-8 max-w-6xl mx-auto; }
-  .app-title { @apply text-3xl font-bold tracking-tight text-zinc-900 dark:text-white; }
-  .muted { @apply text-sm text-zinc-500 dark:text-zinc-400; }
+  .container-app {
+    @apply p-4 md:p-6 lg:p-8 max-w-6xl mx-auto;
+  }
+  .app-title {
+    @apply text-3xl font-bold tracking-tight text-zinc-900 dark:text-white;
+  }
+  .muted {
+    @apply text-sm text-zinc-500 dark:text-zinc-400;
+  }
 }

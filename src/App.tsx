@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import Board from "./components/Board";
-import { useLocalStorageState } from "./hooks/useLocalStorage";
-import { taskByStatus } from "./data/tasks";
-import type { Task, Status } from "./types";
+import { useEffect } from 'react';
+import Board from './components/Board';
+import { taskByStatus } from './data/tasks';
+import { useLocalStorageState } from './hooks/useLocalStorage';
+import type { Status, Task } from './types';
 
 export default function App() {
-  const [tasks, setTasks] = useLocalStorageState<Status, Task[]>("kanban.tasks", taskByStatus);
+  const [tasks, setTasks] = useLocalStorageState<Status, Task[]>('kanban.tasks', taskByStatus);
 
   useEffect(() => {
     if (!tasks.size) {
