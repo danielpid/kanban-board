@@ -1,0 +1,7 @@
+.article {
+    @apply flex justify-around rounded-xl border p-3 bg-white text-black dark:bg-zinc-800 dark:text-white shadow;
+}
+
+.text-wrapper {
+    @apply w-full;
+}

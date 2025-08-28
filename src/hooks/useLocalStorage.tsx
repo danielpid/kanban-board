@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useLocalStorageState<T>(key: string, initial: T) {
-  const [state, setState] = useState<T>(() => {
+export function useLocalStorageState<K, V>(key: string, initial: Map<K, V>) {
+  const [state, setState] = useState<Map<K, V>>(() => {
     try {
       const raw = localStorage.getItem(key);
-      return raw ? (JSON.parse(raw) as T) : initial;
+      return raw ? (new Map(JSON.parse(raw)) as Map<K, V>) : initial;
     } catch {
       return initial;
     }
@@ -16,7 +16,7 @@ export function useLocalStorageState<T>(key: string, initial: T) {
       first.current = false;
       return;
     }
-    localStorage.setItem(key, JSON.stringify(state));
+    localStorage.setItem(key, JSON.stringify(Array.from(state.entries())));
   }, [key, state]);
   
   return [state, setState] as const;
