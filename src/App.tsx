@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import Board from './components/Board';
 import { taskByStatus } from './data/tasks';
 import { useLocalStorageState } from './hooks/useLocalStorage';
 import type { Status, Task } from './types';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export default function App() {
   const [tasks, setTasks] = useLocalStorageState<Status, Task[]>('kanban.tasks', taskByStatus);
@@ -24,7 +25,11 @@ export default function App() {
         <h1 className="app-title">Kanban Board</h1>
         <p className="muted">Total {totalLength}</p>
       </div>
-      <Board tasks={tasks} setTasks={setTasks} />
+      <ErrorBoundary fallback={<p>There was an error loading the board</p>}>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Board tasks={tasks} setTasks={setTasks} />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
